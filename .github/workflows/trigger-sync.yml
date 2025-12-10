@@ -1,0 +1,24 @@
+name: Trigger Sync
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Sync Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: mtthwcmpbll/moderne-repo-sync-example
+          event-type: sync-trigger
+          client-payload: |
+            {
+              "origin_repo": "git@github.com:mtthwcmpbll/moderne-repo-sync-origin.git",
+              "destination_repo": "git@github.com:mtthwcmpbll/moderne-repo-sync-destination.git"
+            }
