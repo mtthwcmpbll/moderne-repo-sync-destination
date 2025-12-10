@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo
+
+services:
+  customer-service:
+    url: https://customers.origindomain.com/api/
+  order-service:
+    url: https://orders.origindomain.com/v1/
