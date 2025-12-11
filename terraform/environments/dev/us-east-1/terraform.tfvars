@@ -1,14 +1,14 @@
-aws_region         = "us-east-1"
+aws_region         = "us-east-2"
 environment        = "dev"
 project_name       = "myproject"
 vpc_cidr           = "10.0.0.0/16"
-availability_zones = ["us-east-1a", "us-east-1b"]
+availability_zones = ["us-east-2a", "us-east-2b"]
 
 enable_container_insights = true
 
 apps = {
   "api-service" = {
-    container_image   = "123456789012.dkr.ecr.us-east-1.amazonaws.com/api-service:latest"
+    container_image   = "123456789012.dkr.ecr.us-east-2.amazonaws.com/api-service:latest"
     container_port    = 8080
     cpu               = 512
     memory            = 1024
@@ -25,7 +25,7 @@ apps = {
   }
 
   "web-frontend" = {
-    container_image   = "123456789012.dkr.ecr.us-east-1.amazonaws.com/web-frontend:latest"
+    container_image   = "123456789012.dkr.ecr.us-east-2.amazonaws.com/web-frontend:latest"
     container_port    = 3000
     cpu               = 256
     memory            = 512
@@ -33,7 +33,7 @@ apps = {
     health_check_path = "/health"
     environment_variables = {
       NODE_ENV    = "development"
-      API_URL     = "http://api-service-dev-alb.us-east-1.elb.amazonaws.com"
+      API_URL     = "http://api-service-dev-alb.us-east-2.elb.amazonaws.com"
     }
     enable_autoscaling = true
     min_capacity       = 2

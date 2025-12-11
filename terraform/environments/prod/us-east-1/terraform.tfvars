@@ -1,14 +1,14 @@
-aws_region         = "us-east-1"
+aws_region         = "us-east-2"
 environment        = "prod"
 project_name       = "myproject"
 vpc_cidr           = "10.10.0.0/16"
-availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+availability_zones = ["us-east-2a", "us-east-2b", "us-east-2c"]
 
 enable_container_insights = true
 
 apps = {
   "api-service" = {
-    container_image   = "123456789012.dkr.ecr.us-east-1.amazonaws.com/api-service:v1.0.0"
+    container_image   = "123456789012.dkr.ecr.us-east-2.amazonaws.com/api-service:v1.0.0"
     container_port    = 8080
     cpu               = 1024
     memory            = 2048
@@ -28,7 +28,7 @@ apps = {
   }
 
   "web-frontend" = {
-    container_image   = "123456789012.dkr.ecr.us-east-1.amazonaws.com/web-frontend:v1.0.0"
+    container_image   = "123456789012.dkr.ecr.us-east-2.amazonaws.com/web-frontend:v1.0.0"
     container_port    = 3000
     cpu               = 512
     memory            = 1024
