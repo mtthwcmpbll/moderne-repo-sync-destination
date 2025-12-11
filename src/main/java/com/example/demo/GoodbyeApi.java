@@ -7,8 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GoodbyeApi {
 
-    @Autowired
     private HelloService helloService;
+
+	public GoodbyeApi() {
+	}
+
+	@Autowired
+	public GoodbyeApi(HelloService helloService) {
+		this.helloService = helloService;
+	}
 
     @GetMapping("/")
     public String getGoodbye() {
