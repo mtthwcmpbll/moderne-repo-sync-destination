@@ -7,8 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TranslateApi {
 
-    @Autowired
     private HelloService service;
+
+	public TranslateApi() {
+	}
+
+	@Autowired
+	public TranslateApi(HelloService service) {
+		this.service = service;
+	}
 
     @GetMapping("/translate")
     public String getTranslate() {
